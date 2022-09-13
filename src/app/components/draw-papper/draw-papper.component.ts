@@ -22,28 +22,18 @@ export class DrawPapperComponent implements OnInit {
 
     new joint.dia.Paper({
         el: document.getElementById('paper'),
-        width: 800,
-        height: 600,
         gridSize: 1,
         model: graph
     });
     
     var uml = joint.shapes.uml;
-
-    var graph = new joint.dia.Graph();
-
-    new joint.dia.Paper({
-        el: document.getElementById('paper'),
-        gridSize: 1,
-        model: graph
-    });
-    
-    var uml = joint.shapes.uml;
-    
+   
 
     //CLASSES UML
     var classes = {
     
+        
+
         mammal: new uml.Interface({
             position: { x:300  , y: 50 },
             size: { width: 240, height: 100 },
@@ -52,17 +42,17 @@ export class DrawPapperComponent implements OnInit {
             methods: ['+ setDateOfBirth(dob: Date): Void','+ getAgeAsDays(): Numeric'],
             attrs: {
                 '.uml-class-name-rect': {
-                    fill: '#feb662',
+                    fill: '#feffe0',
                     stroke: '#ffffff',
                     'stroke-width': 0.5
                 },
                 '.uml-class-attrs-rect': {
-                    fill: '#fdc886',
+                    fill: '#feffe0',
                     stroke: '#fff',
                     'stroke-width': 0.5
                 },
                 '.uml-class-methods-rect': {
-                    fill: '#fdc886',
+                    fill: '#feffe0',
                     stroke: '#fff',
                     'stroke-width': 0.5
                 },
@@ -88,18 +78,18 @@ export class DrawPapperComponent implements OnInit {
             methods: ['+ setName(first: String, last: String): Void','+ getName(): String'],
             attrs: {
                 '.uml-class-name-rect': {
-                    fill: '#68ddd5',
                     stroke: '#ffffff',
+                    fill: '#feffe0',
                     'stroke-width': 0.5
                 },
                 '.uml-class-attrs-rect': {
-                    fill: '#9687fe',
                     stroke: '#fff',
+                    fill: '#feffe0',
                     'stroke-width': 0.5
                 },
                 '.uml-class-methods-rect': {
-                    fill: '#9687fe',
                     stroke: '#fff',
+                    fill: '#feffe0',
                     'stroke-width': 0.5
                 },
                 '.uml-class-methods-text, .uml-class-attrs-text': {
@@ -116,17 +106,17 @@ export class DrawPapperComponent implements OnInit {
             methods: ['+ isCompatible(bG: String): Boolean'],
             attrs: {
                 '.uml-class-name-rect': {
-                    fill: '#ff8450',
+                    fill: '#feffe0',
                     stroke: '#fff',
                     'stroke-width': 0.5,
                 },
                 '.uml-class-attrs-rect': {
-                    fill: '#fe976a',
+                    fill: '#feffe0',
                     stroke: '#fff',
                     'stroke-width': 0.5
                 },
                 '.uml-class-methods-rect': {
-                    fill: '#fe976a',
+                    fill: '#feffe0',
                     stroke: '#fff',
                     'stroke-width': 0.5
                 },
@@ -151,17 +141,17 @@ export class DrawPapperComponent implements OnInit {
             methods: [],
             attrs: {
                 '.uml-class-name-rect': {
-                    fill: '#ff8450',
+                    fill: '#feffe0',
                     stroke: '#fff',
                     'stroke-width': 0.5
                 },
                 '.uml-class-attrs-rect': {
-                    fill: '#fe976a',
+                    fill: '#feffe0',
                     stroke: '#fff',
                     'stroke-width': 0.5
                 },
                 '.uml-class-methods-rect': {
-                    fill: '#fe976a',
+                    fill: '#feffe0',
                     stroke: '#fff',
                     'stroke-width': 0.5
                 },
@@ -176,20 +166,20 @@ export class DrawPapperComponent implements OnInit {
         man: new uml.Class({
             position: { x:200  , y: 500 },
             size: { width: 180, height: 50 },
-            name: 'Man',
+            name: 'Man<<mandatory>>',
             attrs: {
                 '.uml-class-name-rect': {
-                    fill: '#ff8450',
+                    fill: '#feffe0',
                     stroke: '#fff',
                     'stroke-width': 0.5
                 },
                 '.uml-class-attrs-rect': {
-                    fill: '#fe976a',
+                    fill: '#feffe0',
                     stroke: '#fff',
                     'stroke-width': 0.5
                 },
                 '.uml-class-methods-rect': {
-                    fill: '#fe976a',
+                    fill: '#feffe0',
                     stroke: '#fff',
                     'stroke-width': 0.5
                 }
@@ -203,17 +193,17 @@ export class DrawPapperComponent implements OnInit {
             methods: ['+ giveABrith(): Person []'],
             attrs: {
                 '.uml-class-name-rect': {
-                    fill: '#ff8450',
+                    fill: '#feffe0',
                     stroke: '#fff',
                     'stroke-width': 0.5
                 },
                 '.uml-class-attrs-rect': {
-                    fill: '#fe976a',
+                    fill: '#feffe0',
                     stroke: '#fff',
                     'stroke-width': 0.5
                 },
                 '.uml-class-methods-rect': {
-                    fill: '#fe976a',
+                    fill: '#feffe0',
                     stroke: '#fff',
                     'stroke-width': 0.5
                 },
@@ -224,8 +214,7 @@ export class DrawPapperComponent implements OnInit {
             }
         })
 
-    };
-    
+    };    
     
     //RELACIONAMENTOS
     var relations = [
@@ -247,9 +236,8 @@ export class DrawPapperComponent implements OnInit {
         //@ts-ignore  
         graph.addCell(relations[key]);
     });
+   
     
-    
-
   }
 
 }

@@ -3,5 +3,11 @@
 }
 
 #paper{
-    width: 100vw;
+    min-width: 100%;
+    max-height: calc(100vh - 44px);
+    overflow: auto;
+}
+
+.joint-type-uml-abstract{
+    border: 1px solid #000 !important;
 }
