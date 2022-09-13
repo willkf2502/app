@@ -4,10 +4,11 @@
 
 #paper{
     min-width: 100%;
-    max-height: calc(100vh - 44px);
-    overflow: auto;
+    max-height: calc(100vh - 73px); /* ( 86px = 44 do menu principal e 30 da toolbar + 12 scroll) */
+    overflow: scroll;
 }
 
 .joint-type-uml-abstract{
     border: 1px solid #000 !important;
 }
+
