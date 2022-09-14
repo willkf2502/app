@@ -19,9 +19,9 @@
 }
 
 .nav-link{
-    color: rgb(50,50,50)
-    
+    color: rgb(50,50,50)   
 }
+
 .nav-link:hover{
     color: darkred;
     transition: color 0.2s;
