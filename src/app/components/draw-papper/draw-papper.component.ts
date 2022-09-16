@@ -27,12 +27,13 @@ export class DrawPapperComponent implements OnInit {
 
         new joint.dia.Paper({
             el: document.getElementById('paper'),
-            gridSize: 1,
+            gridSize: 0.5,
             model: graph
         });
 
         var uml = joint.shapes.uml;
 
+        
 
         //CLASSES UML
         var classes = {
@@ -262,8 +263,8 @@ export class DrawPapperComponent implements OnInit {
         var relations = [
             new uml.Implementation({ source: { id: classes.mammal.id }, target: { id: classes.mammals.id }}),
             new uml.Generalization({ source: { id: classes.man.id }, target: { id: classes.person.id }}),
-            new uml.Generalization({ source: { id: classes.woman.id }, target: { id: classes.person.id }}),
-            new uml.Implementation({ source: { id: classes.person.id }, target: { id: classes.mammal.id }}),
+            new uml.Transition({ source: { id: classes.woman.id }, target: { id: classes.person.id }}),
+            new uml.Association({ source: { id: classes.person.id }, target: { id: classes.mammal.id }}),
             new uml.Aggregation({ source: { id: classes.person.id }, target: { id: classes.address.id }}),
             new uml.Composition({ source: { id: classes.person.id }, target: { id: classes.bloodgroup.id }})
         ];   

@@ -8,6 +8,19 @@ This Source Code Form is subject to the terms of the Mozilla Public
 License, v. 2.0. If a copy of the MPL was not distributed with this
 file, You can obtain one at http://mozilla.org/MPL/2.0/.
 */
+
+//implementations of links in class diagrams and others
+//Arrow 
+var umlArrow = 'M 10 0 L 0 5 L 10 10 z';
+
+//Large Arrow 
+var umlBigArrow = 'M 15 0 L 0 7.5 L 15 15 z';
+
+//var umlDiamond = 'M 40 10 L 20 20 L 0 10 L 20 0 z';
+
+//diamante
+var umlDiamond = 'M 20 5 L 10 10 L 0 5 L 10 0 z';
+
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('backbone'), require('lodash'), require('jquery')) :
 	typeof define === 'function' && define.amd ? define(['exports', 'backbone', 'lodash', 'jquery'], factory) :
@@ -115,8 +128,6 @@ file, You can obtain one at http://mozilla.org/MPL/2.0/.
 	};
 
 	// toObject with fallback for non-array-like ES3 strings
-
-
 
 	var toIndexedObject = function (it) {
 	  return indexedObject(requireObjectCoercible(it));
@@ -14612,12 +14623,12 @@ file, You can obtain one at http://mozilla.org/MPL/2.0/.
 	    toolMarkup: [
 	        '<g class="link-tool">',
 	        '<g class="tool-remove" event="remove">',
-	        '<circle r="11" />',
+	        '<circle r="8" />',
 	        '<path transform="scale(.8) translate(-16, -16)" d="M24.778,21.419 19.276,15.917 24.777,10.415 21.949,7.585 16.447,13.087 10.945,7.585 8.117,10.415 13.618,15.917 8.116,21.419 10.946,24.248 16.447,18.746 21.948,24.248z" />',
 	        '<title>Remove link.</title>',
 	        '</g>',
 	        '<g class="tool-options" event="link:options">',
-	        '<circle r="11" transform="translate(25)"/>',
+	        '<circle r="8" transform="translate(25)"/>',
 	        '<path fill="white" transform="scale(.55) translate(29, -16)" d="M31.229,17.736c0.064-0.571,0.104-1.148,0.104-1.736s-0.04-1.166-0.104-1.737l-4.377-1.557c-0.218-0.716-0.504-1.401-0.851-2.05l1.993-4.192c-0.725-0.91-1.549-1.734-2.458-2.459l-4.193,1.994c-0.647-0.347-1.334-0.632-2.049-0.849l-1.558-4.378C17.165,0.708,16.588,0.667,16,0.667s-1.166,0.041-1.737,0.105L12.707,5.15c-0.716,0.217-1.401,0.502-2.05,0.849L6.464,4.005C5.554,4.73,4.73,5.554,4.005,6.464l1.994,4.192c-0.347,0.648-0.632,1.334-0.849,2.05l-4.378,1.557C0.708,14.834,0.667,15.412,0.667,16s0.041,1.165,0.105,1.736l4.378,1.558c0.217,0.715,0.502,1.401,0.849,2.049l-1.994,4.193c0.725,0.909,1.549,1.733,2.459,2.458l4.192-1.993c0.648,0.347,1.334,0.633,2.05,0.851l1.557,4.377c0.571,0.064,1.148,0.104,1.737,0.104c0.588,0,1.165-0.04,1.736-0.104l1.558-4.377c0.715-0.218,1.399-0.504,2.049-0.851l4.193,1.993c0.909-0.725,1.733-1.549,2.458-2.458l-1.993-4.193c0.347-0.647,0.633-1.334,0.851-2.049L31.229,17.736zM16,20.871c-2.69,0-4.872-2.182-4.872-4.871c0-2.69,2.182-4.872,4.872-4.872c2.689,0,4.871,2.182,4.871,4.872C20.871,18.689,18.689,20.871,16,20.871z"/>',
 	        '<title>Link options.</title>',
 	        '</g>',
@@ -14641,7 +14652,7 @@ file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 	    arrowheadMarkup: [
 	        '<g class="marker-arrowhead-group marker-arrowhead-group-<%= end %>">',
-	        '<path class="marker-arrowhead" end="<%= end %>" d="M 26 0 L 0 13 L 26 26 z" />',
+	        '<path class="marker-arrowhead" end="<%= end %>" d="'+umlBigArrow+'" />',
 	        '</g>'
 	    ].join(''),
 
@@ -31576,7 +31587,7 @@ file, You can obtain one at http://mozilla.org/MPL/2.0/.
 	    }
 	}, {
 	    getClassName: function() {
-	        return ['<<Mandatory>>', this.get('name')];
+	        return [this.get('name'), ];
 	    }
 	});
 
@@ -31593,23 +31604,25 @@ file, You can obtain one at http://mozilla.org/MPL/2.0/.
 	});
 	var InterfaceView = ClassView;
 
+	
+
 	var Generalization = Link.define('uml.Generalization', {
-	    attrs: { '.marker-target': { d: 'M 20 0 L 0 10 L 20 20 z', fill: 'white' }}
+	    attrs: { '.marker-target': { d: umlArrow, fill: 'white' }}
 	});
 
 	var Implementation = Link.define('uml.Implementation', {
 	    attrs: {
-	        '.marker-target': { d: 'M 20 0 L 0 10 L 20 20 z', fill: 'white' },
+	        '.marker-target': { d: umlArrow, fill: 'white' },
 	        '.connection': { 'stroke-dasharray': '3,3' }
 	    }
 	});
 
 	var Aggregation = Link.define('uml.Aggregation', {
-	    attrs: { '.marker-target': { d: 'M 40 10 L 20 20 L 0 10 L 20 0 z', fill: 'white' }}
+	    attrs: { '.marker-target': { d: umlDiamond, fill: 'white' }}
 	});
 
 	var Composition = Link.define('uml.Composition', {
-	    attrs: { '.marker-target': { d: 'M 40 10 L 20 20 L 0 10 L 20 0 z', fill: 'black' }}
+	    attrs: { '.marker-target': { d: umlDiamond, fill: 'black' }}
 	});
 
 	var Association = Link.define('uml.Association');

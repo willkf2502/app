@@ -4,7 +4,7 @@
 
 #paper{
     min-width: 100%;
-    max-height: calc(100vh - 73px); /* ( 86px = 44 do menu principal e 30 da toolbar + 12 scroll) */
+    max-height: calc(100vh - 75px); /* (  44 do menu principal e 30 da toolbar ) */
     overflow: scroll;
 }
 
